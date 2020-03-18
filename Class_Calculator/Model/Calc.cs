@@ -124,6 +124,19 @@ namespace Class_Calculator.Model
             return LeftNumber + Operation + RightNumber;
         }
         
+        private void AddPlusMinus(ref string number)
+        {
+            if (number == "0" || number == "") return;
+            if (number.Contains("-"))
+            {
+                number = number[1..];
+            }
+            else
+            {
+                number = "-" + number;
+            }
+        }
+        
         public string ParseEqualsSign(string signFromButton, ref string result)
         {
             if (result == Error)
@@ -244,19 +257,6 @@ namespace Class_Calculator.Model
             return result + Operation;
         }
         
-        private void AddPlusMinus(ref string number)
-        {
-            if (number == "0" || number == "") return;
-            if (number.Contains("-"))
-            {
-                number = number[1..];
-            }
-            else
-            {
-                number = "-" + number;
-            }
-        }
-
         public string OperationMemory(string signFromButton, string result)
         {
             string text;
@@ -299,7 +299,14 @@ namespace Class_Calculator.Model
             {
                 case "MS":
                     clickedM = true;
-                    memoryNumber = number;
+                    if (number.Contains("0,"))
+                    {
+                        memoryNumber = "0";
+                    }
+                    else
+                    {
+                        memoryNumber = number;
+                    }
                     break;
                 case "M+":
                     clickedM = true;
