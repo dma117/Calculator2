@@ -166,6 +166,12 @@ namespace Class_Calculator.Model
             if (RightNumber == "")
             {
                 Operation = signFromButton;
+                
+                if (double.Parse(LeftNumber) * 1 == 0)
+                {
+                    LeftNumber = "0";
+                }
+                
                 return LeftNumber + Operation;
             }
             result = CountExpressionResult();
