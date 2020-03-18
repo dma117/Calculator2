@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Calculator
+namespace Class_Calculator
 {
     /// <summary>
     /// Interaction logic for App.xaml
