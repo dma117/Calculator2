@@ -149,6 +149,11 @@ namespace Class_Calculator.Model
                 {
                     LeftNumber = LeftNumber[..^1];
                 }
+                
+                if (double.Parse(LeftNumber) * 1 == 0)
+                {
+                    LeftNumber = "0";
+                }
 
                 Operation = "=";
                 return LeftNumber;
@@ -305,7 +310,7 @@ namespace Class_Calculator.Model
             {
                 case "MS":
                     clickedM = true;
-                    if (number.Contains("0,"))
+                    if (double.Parse(number) * 1 == 0)
                     {
                         memoryNumber = "0";
                     }
